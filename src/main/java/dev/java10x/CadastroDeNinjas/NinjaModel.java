@@ -9,17 +9,17 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private int idade;
     private String email;
+    private int idade;
 
     public NinjaModel() {
     }
 
-    public NinjaModel(Long id, String nome, int idade, String email) {
+    public NinjaModel(Long id, String nome, String email, int idade) {
         this.id = id;
         this.nome = nome;
-        this.idade = idade;
         this.email = email;
+        this.idade = idade;
     }
 
     public Long getId() {
@@ -38,19 +38,19 @@ public class NinjaModel {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 }
