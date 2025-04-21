@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,5 +24,10 @@ public class NinjaService {
     public NinjaModel listarNinjasPorID(Long Id) {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(Id);
         return ninjaPorId.orElse(null);
+    }
+
+    // Criar um ninja
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
     }
 }
