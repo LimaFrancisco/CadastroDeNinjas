@@ -18,6 +18,7 @@ public class MissaoModel {
     private Long id;
     private String nome;
     private String dificuldade;
+
     @OneToMany(mappedBy = "missao")
     @JoinColumn(name = "missao_id")
     private NinjaModel ninjas;
