@@ -1,5 +1,6 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninja;
 
+import dev.java10x.CadastroDeNinjas.Missao.MissaoModel;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,4 +15,6 @@ public class NinjaModel {
     private String nome;
     private int idade;
     private String email;
+    @ManyToOne
+    private MissaoModel missoes;
 }
