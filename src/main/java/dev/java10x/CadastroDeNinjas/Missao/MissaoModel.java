@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_missao")
 @Data
@@ -26,5 +28,5 @@ public class MissaoModel {
 
     @OneToMany(mappedBy = "missao")
     @Column(name = "ninjas")
-    private NinjaModel ninjas;
+    private Set<NinjaModel> ninjas;
 }

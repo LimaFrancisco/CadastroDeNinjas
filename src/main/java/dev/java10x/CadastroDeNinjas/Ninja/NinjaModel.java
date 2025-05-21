@@ -30,6 +30,6 @@ public class NinjaModel {
     private String imgUrl;
 
     @ManyToOne
-    @JoinColumn(name = "missao_id")
-    private MissaoModel missoes;
+    @JoinColumn(name = "missao_id")  // Chave estrangeira da tabela Missao na table Ninja
+    private MissaoModel missao;
 }
