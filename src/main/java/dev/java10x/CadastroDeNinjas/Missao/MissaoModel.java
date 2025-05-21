@@ -15,11 +15,16 @@ public class MissaoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "dificuldade")
     private String dificuldade;
 
     @OneToMany(mappedBy = "missao")
-    @JoinColumn(name = "missao_id")
+    @Column(name = "ninjas")
     private NinjaModel ninjas;
 }
