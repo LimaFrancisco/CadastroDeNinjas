@@ -34,3 +34,6 @@ build/
 
 ### Another files ###
 .env
+
+### Another folders ###
+data/
