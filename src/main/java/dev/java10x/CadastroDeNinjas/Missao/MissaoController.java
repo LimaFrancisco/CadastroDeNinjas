@@ -8,10 +8,10 @@ import java.util.List;
 @RequestMapping("/missao")
 public class MissaoController {
 
-    private MissaoRepository missaoRepository;
+    private MissaoService missaoService;
 
-    public MissaoController(MissaoRepository missaoRepository) {
-        this.missaoRepository = missaoRepository;
+    public MissaoController(MissaoService missaoService) {
+        this.missaoService = missaoService;
     }
 
     // POST -- Mandar uma requisição para criar uma missão
@@ -23,7 +23,12 @@ public class MissaoController {
     // GET -- Mandar uma requisição para listar as missões
     @GetMapping("/listar")
     public List<MissaoModel> listarMissoes(){
-        return missaoRepository.findAll();
+        return missaoService.listarMissoes();
+    }
+
+    @GetMapping("/listar/{id}")
+    public MissaoModel listarMissaoPorID(@PathVariable Long id){
+        return missaoService.listarMissaoPorId(id);
     }
 
     // PUT -- Mandar uma requisição para atualizar as missões
