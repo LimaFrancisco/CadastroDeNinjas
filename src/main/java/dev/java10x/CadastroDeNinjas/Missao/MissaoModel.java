@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Missao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinjas.Ninja.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,5 +29,6 @@ public class MissaoModel {
 
     @OneToMany(mappedBy = "missao")
     @Column(name = "ninjas")
+    @JsonIgnore
     private Set<NinjaModel> ninjas;
 }
