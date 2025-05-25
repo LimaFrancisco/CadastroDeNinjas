@@ -26,4 +26,9 @@ public class MissaoService {
         Optional<MissaoModel> missaoPorId = missaoRepository.findById(id);
         return missaoPorId.orElse(null);
     }
+
+    // Criar missao
+    public MissaoModel criarMissao(MissaoModel missao){
+        return missaoRepository.save(missao);
+    }
 }
