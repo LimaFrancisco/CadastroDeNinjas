@@ -10,10 +10,12 @@ public class MissaoService {
 
     // Injeção de dependencia
     private MissaoRepository missaoRepository;
+    private MissaoMapper missaoMapper;
 
     // Construtor
-    public MissaoService(MissaoRepository missaoRepository) {
+    public MissaoService(MissaoRepository missaoRepository, MissaoMapper missaoMapper) {
         this.missaoRepository = missaoRepository;
+        this.missaoMapper = missaoMapper;
     }
 
     // Lista todas as missões cadastradas no banco
@@ -28,8 +30,10 @@ public class MissaoService {
     }
 
     // Criar missao
-    public MissaoModel criarMissao(MissaoModel missao){
-        return missaoRepository.save(missao);
+    public MissaoDTO criarMissao(MissaoDTO missaoDTO){
+        MissaoModel missaoModel = missaoMapper.map(missaoDTO);
+        missaoModel = missaoRepository.save(missaoModel);
+        return missaoMapper.map(missaoModel);
     }
 
     // Deletar missao
