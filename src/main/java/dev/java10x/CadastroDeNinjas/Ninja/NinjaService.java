@@ -1,6 +1,5 @@
 package dev.java10x.CadastroDeNinjas.Ninja;
 
-import dev.java10x.CadastroDeNinjas.Missao.MissaoModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +10,12 @@ public class NinjaService {
 
     // Injeção de dependencia do NinjaRepository
     private NinjaRespository ninjaRespository;
+    private NinjaMapper ninjaMapper;
 
     // Inicializado o construtor que pode ser substituido pela anotation @Autowired
-    public NinjaService(NinjaRespository ninjaRespository) {
+    public NinjaService(NinjaRespository ninjaRespository, NinjaMapper ninjaMapper) {
         this.ninjaRespository = ninjaRespository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     // Listar todos os meus ninjas
@@ -29,8 +30,10 @@ public class NinjaService {
     }
 
     // Criar um novo ninja
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return ninjaRespository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninja = ninjaMapper.map(ninjaDTO);
+        ninja = ninjaRespository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
     // Deltar um ninja por ID - Tem que ser um metodo void
